@@ -43,8 +43,8 @@ The same run then checks the golden vectors with the independent Python verifier
 You need git, Rust 1.85 or newer, and Python 3.9 or newer. Linux or macOS.
 
 ```sh
-git clone https://github.com/ce-net/demo-demo-own-devices-only
-cd demo-demo-own-devices-only
+git clone https://github.com/ce-net/demo-own-devices-only
+cd demo-own-devices-only
 ./scripts/four-devices.sh
 ```
 
