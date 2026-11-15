@@ -1,0 +1,15 @@
+[package]
+name = "access-gate"
+description = "access.gate@1: fronts any HTTP upstream; forwards a call only with a valid holder-bound chain, a matching holder proof and a fresh revocation list."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+ce-net-proto.workspace = true
+own-core.workspace = true
+revoke-list.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+hex.workspace = true

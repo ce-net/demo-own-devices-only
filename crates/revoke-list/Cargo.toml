@@ -1,0 +1,14 @@
+[package]
+name = "revoke-list"
+description = "revoke.list@1: an owner's enrolled device revokes another device; the cell serves a freshly signed list that gates poll."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+ce-net-proto.workspace = true
+own-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+hex.workspace = true

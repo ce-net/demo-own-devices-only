@@ -1,0 +1,11 @@
+[cell]
+kind = "service"
+api = "revoke.list"
+major = 1
+summary = "A device holding devices:revoke revokes another device's chain link; gates poll a list signed fresh on every read."
+crate = "revoke-list"
+license = "Apache-2.0"
+ops = ["Revoke", "List"]
+
+[limits]
+disk_bytes = "16M"

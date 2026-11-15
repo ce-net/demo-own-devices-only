@@ -1,0 +1,49 @@
+== build
+== directory (ce-net-local-dev-sim) and cells
+device.enroll e76b937e1796f600 on http://127.0.0.1:41535
+revoke.list dae98519717b3cbf on http://127.0.0.1:37543
+access.gate a5a067557ec60d5c on http://127.0.0.1:43943 -> paid API
+== enroll laptop, phone, desktop (one pairing code each, from the owner)
+code 9E9Q-G2KD -> enrolled laptop: key 6343bdef86010898..., chain of 2 links, valid until 1797358474
+code YJAA-VX7N -> enrolled phone: key e3c3b1093af2f9a7..., chain of 2 links, valid until 1797358474
+code XK35-HQH2 -> enrolled desktop: key 375733e3ba800e4f..., chain of 2 links, valid until 1797358474
+== friend gets a copy of the phone's key file (not the phone's device secret)
+== reusing a burned pairing code
+refused: enroll: "unknown or expired pairing code"
+== four devices call the paid API through access.gate every 100 ms
+== the phone is lost: revoke it from the laptop
+{"at_ms":1794766476664,"from":"laptop","revoked":"phone"}
+== result
+Four devices call one paid API through access.gate. The phone is revoked from the laptop at +2.01 s.
+
+  device   key file           before revoke          after revoke
+  laptop   its own            17 accepted            26 accepted
+  phone    its own            18 accepted            1 accepted, then 25 refused
+  desktop  its own            18 accepted            26 accepted
+  friend   copied from phone  19 refused             29 refused
+
+Refusal reasons, as access.gate returned them:
+  phone : link 1: capability revoked: device 'phone' was revoked at 1794766476664 (list version 1)
+  friend: holder proof does not match: the request is not signed by the chain's holder e3c3b1093af2f9a7
+
+Revoke to the phone's first refusal: 208 ms
+PASS: laptop, phone and desktop accepted; the copied key refused (holder proof); the revoked phone refused; laptop and desktop kept working.
+== golden vectors, checked by ce-net-capability-verify
+ok   laptop                             valid
+ok   phone                              valid
+ok   desktop                            valid
+ok   phone-key-copied-to-friend         valid
+ok   phone-revoked                      link 1: capability revoked
+ok   laptop-after-phone-revoked         valid
+ok   desktop-after-phone-revoked        valid
+ok   phone-after-30-days                link 1: capability has expired
+ok   enroll-widens-ability              link 1: abilities exceed the parent
+ok   phone-passes-on-longer-life        link 2: caveats are broader than the parent
+ok   other-owner                        capability chain does not root at an accepted authority
+11/11 vectors pass
+ok   laptop                             signed by holder       -> holder proof match
+ok   phone                              signed by holder       -> holder proof match
+ok   desktop                            signed by holder       -> holder proof match
+ok   phone-key-copied-to-friend         signed by someone else -> holder proof mismatch
+ok   laptop-after-phone-revoked         signed by holder       -> holder proof match
+5/5 holder proofs as expected

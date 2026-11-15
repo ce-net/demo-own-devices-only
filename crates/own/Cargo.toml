@@ -1,0 +1,20 @@
+[package]
+name = "own"
+description = "The owner's and devices' command line: make the owner key, grant the enroll cell, get pairing codes, enroll, call, revoke, report."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "own"
+path = "src/main.rs"
+
+[dependencies]
+ce-net-proto.workspace = true
+own-core.workspace = true
+device-enroll.workspace = true
+revoke-list.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+hex.workspace = true

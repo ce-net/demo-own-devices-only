@@ -1,0 +1,13 @@
+[package]
+name = "golden"
+description = "Golden vectors for the holder-bound device chains, in the ce-net-capability-verify vectors.json format."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+ce-net-proto.workspace = true
+own-core.workspace = true
+serde_json.workspace = true
+hex.workspace = true

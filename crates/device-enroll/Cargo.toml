@@ -1,0 +1,14 @@
+[package]
+name = "device-enroll"
+description = "device.enroll@1: the owner asks for a one-time pairing code; a device presents it with proof of its own key and gets a holder-bound, attenuated chain."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+ce-net-proto.workspace = true
+own-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+hex.workspace = true

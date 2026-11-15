@@ -1,0 +1,11 @@
+[cell]
+kind = "service"
+api = "access.gate"
+major = 1
+summary = "Fronts any upstream. A call passes only with a chain rooted at the owner, signed by the chain's holder, and not on a fresh revocation list."
+crate = "access-gate"
+license = "Apache-2.0"
+ops = ["Call"]
+
+[limits]
+disk_bytes = "16M"

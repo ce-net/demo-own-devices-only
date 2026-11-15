@@ -1,0 +1,14 @@
+[package]
+name = "own-core"
+description = "Shared pieces of the own-devices cells: a tiny HTTP/1.1 server and client, key files, signed-request proofs, directory lookup."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+ce-net-proto.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+hex.workspace = true

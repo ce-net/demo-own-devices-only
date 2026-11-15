@@ -1,0 +1,11 @@
+[cell]
+kind = "service"
+api = "device.enroll"
+major = 1
+summary = "Owner gets a one-time pairing code; a device redeems it with proof of its key and receives a chain bound to that key."
+crate = "device-enroll"
+license = "Apache-2.0"
+ops = ["Pair", "Enroll", "Devices"]
+
+[limits]
+disk_bytes = "16M"
