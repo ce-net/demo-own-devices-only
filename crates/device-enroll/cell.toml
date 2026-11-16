@@ -9,3 +9,16 @@ ops = ["Pair", "Enroll", "Devices"]
 
 [limits]
 disk_bytes = "16M"
+
+[stamp]
+id = "cell:device.enroll"
+kind = "cell"
+path = "crates/device-enroll/cell.toml"
+updated_at = 2026-11-15T18:14:52Z
+version = "0.1.0"
+access = "internal"
+canonical_of = []
+duplicate_of = ""
+owner = "foreman/lead"
+source_of_truth = "https://github.com/ce-net/demo-demo-own-devices-only"
+stale_after = 180
